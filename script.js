@@ -1,15 +1,17 @@
 //header//
 
-// const activePage = window.location.pathname;
-// console.log(activePage);
-// const navLink=document.querySelectorAll(`nav a`)
-// navLink.forEach(link=>{
-//   if(link.href.includes(`${activePage}`)){
-//     console.log(activePage);
-    
-//   }
+const activePage = window.location.pathname;
+console.log(activePage);
+const navLink=document.querySelectorAll(`nav a`)
+navLink.forEach(link=>{
+  console.log(link.href);
   
-// })
+  // if(link.href.includes(`${activePage}`)){
+  //   console.log(activePage);
+    
+  // }
+  
+})
 
 // const logo = document.querySelector(`.logo`);
 // logo.addEventListener(`click`, (e) => {
