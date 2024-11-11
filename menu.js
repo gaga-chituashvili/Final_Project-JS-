@@ -1,4 +1,14 @@
 
+// header
+
+const logo = document.querySelector(`.logo`);
+logo.addEventListener(`click`, (e) => {
+  console.log(e);
+  
+  location.reload();
+});
+
+//slider//
 
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');

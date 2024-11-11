@@ -1,3 +1,23 @@
+//header//
+
+// const activePage = window.location.pathname;
+// console.log(activePage);
+// const navLink=document.querySelectorAll(`nav a`)
+// navLink.forEach(link=>{
+//   if(link.href.includes(`${activePage}`)){
+//     console.log(activePage);
+    
+//   }
+  
+// })
+
+// const logo = document.querySelector(`.logo`);
+// logo.addEventListener(`click`, (e) => {
+//   console.log(e);
+
+//   location.reload();
+// });
+
 // menu
 const fetchproduct = async () => {
   const response = await fetch(`https://dummyjson.com/recipes`);
@@ -57,7 +77,6 @@ const renderCards = async () => {
 
 renderCards();
 
-
 const search = document.querySelector(`.search`);
 search.addEventListener(`change`, async (event) => {
   const recipes = await fetchproduct();
@@ -69,11 +88,10 @@ search.addEventListener(`change`, async (event) => {
   createCards(filter);
 });
 
-
 //input//
 
-const inputs = document.querySelectorAll('input');
-const textarea = document.querySelector('textarea');
+const inputs = document.querySelectorAll("input");
+const textarea = document.querySelector("textarea");
 
 const patterns = {
   Firstname: /^[a-z\d]{1,12}$/i,
@@ -85,26 +103,19 @@ function validateInput(field) {
   const pattern = patterns[field.name];
   if (pattern) {
     if (pattern.test(field.value)) {
-      field.className = 'valid';
+      field.className = "valid";
     } else {
-      field.className = 'invalid';
+      field.className = "invalid";
     }
   }
 }
 
-inputs.forEach(input => {
-  input.addEventListener('keyup', (event) => {
+inputs.forEach((input) => {
+  input.addEventListener("keyup", (event) => {
     validateInput(event.target);
   });
 });
 
-textarea.addEventListener('keyup', (event) => {
+textarea.addEventListener("keyup", (event) => {
   validateInput(event.target);
 });
-
-
-
-
-
-
-  

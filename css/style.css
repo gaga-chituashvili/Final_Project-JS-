@@ -20,6 +20,10 @@
   background-color: rgb(33, 33, 33);
 }
 
+.logo{
+  cursor: pointer;
+}
+
 .header_ul {
   display: flex;
   column-gap: 20px;
@@ -264,6 +268,10 @@ div[class*="box"] {
   background-color: #e4c590;
 }
 
+.card:hover{
+  box-shadow: 0 0 8px 4px #383838;
+}
+
 .imgcard {
   max-width: 400px;
 }
@@ -360,7 +368,7 @@ svg {
 
 .button_information:hover {
   transition: 1s ease-in-out;
-  background: #212121;
+  background: #383838;
 }
 
 .button_information:hover svg {
@@ -621,7 +629,7 @@ button:hover {
 }
 
 input.invalid {
-  border-color: orange;
+  border-color: #e4c590;
 }
 
 input.valid {
@@ -634,7 +642,7 @@ input + p {
   font-weight: bold;
   text-align: center;
   margin: 0 10px;
-  color: orange;
+  color: #e4c590;
   opacity: 0;
   height: 0;
   transition: opacity 0.3s ease-in-out;
@@ -790,4 +798,5 @@ h5{
   position: relative;
   padding-bottom: 5px;
 }
+
 
