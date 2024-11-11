@@ -690,3 +690,104 @@ input.invalid + p {
 .sub_a:hover:after{
   width: 100%;
 }
+
+/* about section */
+
+.about_section{
+  background-image: url(../image/front-view-sliced-cheese-fork-dark-meal-color-photo-snack-breakfast-crisp.jpg);
+  background-size: 100%;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding: 100px;
+  position: relative;
+}
+
+.about_img{
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.about_img:hover{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.about_chef{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  left: 55%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+
+.title_and_text{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+
+.about_title{
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+.about_text{
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+
+h5{
+  font-size: 20px;
+  color: white;
+}
+
+
+.about_text_section{
+  width: 400px;
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about_article{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.about_a{
+  color: #e4c590;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
+}
+
