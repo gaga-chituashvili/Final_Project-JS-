@@ -566,25 +566,12 @@ svg {
   background-position: center;
 }
 
-
-
-.titl{
-  font-size: 25px;
-  font-weight: 600;
-  text-align: center;
+h3{
+  font-size: 30px;
+  color: white;
 }
 
-.name_and_email{
-  display: flex;
-}
-
-form{
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-.contact_and_form{
+.contact_and_form {
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -595,41 +582,53 @@ form{
 }
 
 
-.firstname,.email
-{
+.name_and_email, form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+input, textarea {
   height: 60px;
   border-radius: 10px;
   background-color: rgb(94, 94, 94);
   outline: rgb(255, 217, 0);
   color: white;
   caret-color: white;
+  padding: 10px;
 }
+
+textarea[name="textarea"] {
+  height: 150px;
+  resize: none;
+  border: none;
+  padding: 6px 8px;
+}
+
 ::placeholder {
   font-size: 20px;
-  padding: 10px 10px;
   color: white;
 }
 
-button[type=submit]{
+button[type="submit"] {
   height: 50px;
   border-radius: 10px;
 }
 
-button:hover{
+
+button:hover {
   background-color: #e4c590;
 }
 
 input.invalid {
   border-color: orange;
- }
+}
 
-
- input.valid {
+input.valid {
   border-color: #36cc36;
- }
+}
 
-
-  input + p{
+input + p {
   font-family: arial;
   font-size: 0.9em;
   font-weight: bold;
@@ -638,24 +637,56 @@ input.invalid {
   color: orange;
   opacity: 0;
   height: 0;
- }
+  transition: opacity 0.3s ease-in-out;
+}
 
- 
- input.invalid + p {
+input.invalid + p {
   opacity: 1;
   height: auto;
   margin-bottom: 20px;
- }
+}
 
- /*aqedan*/
 
- textarea[name=textarea] {
-  height: 150px;
-  background-color:rgb(94, 94, 94);
-  resize: none;
-  outline: none;
-  border: none;
-  padding: 6px 8px;
-  color: #FFFFFF;
-  caret-color: #FFFFFF; 
- }
+ /*submit button */
+
+ 
+
+.sub_a{
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #e4c590;
+  border: 2px solid #000000;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+.sub_a span{
+  position: relative;
+  z-index: 2;
+}
+
+.sub_a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #e4c590;
+  transition: all .35s;
+}
+
+.sub_a:hover{
+  color: #fff;
+}
+
+.sub_a:hover:after{
+  width: 100%;
+}

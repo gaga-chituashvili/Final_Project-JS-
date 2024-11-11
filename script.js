@@ -70,7 +70,39 @@ search.addEventListener(`change`, async (event) => {
 });
 
 
-//contact//
+//input//
+
+const inputs = document.querySelectorAll('input');
+const textarea = document.querySelector('textarea');
+
+const patterns = {
+  Firstname: /^[a-z\d]{1,12}$/i,
+  Email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+  Textarea: /^[\d\w@-]{1,150}$/i,
+};
+
+function validateInput(field) {
+  const pattern = patterns[field.name];
+  if (pattern) {
+    if (pattern.test(field.value)) {
+      field.className = 'valid';
+    } else {
+      field.className = 'invalid';
+    }
+  }
+}
+
+inputs.forEach(input => {
+  input.addEventListener('keyup', (event) => {
+    validateInput(event.target);
+  });
+});
+
+textarea.addEventListener('keyup', (event) => {
+  validateInput(event.target);
+});
+
+
 
 
 

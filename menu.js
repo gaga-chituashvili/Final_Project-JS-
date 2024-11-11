@@ -20,3 +20,5 @@ right.addEventListener('click', () => {
   activeIndex = (activeIndex < sliderItem.length - 1) ? activeIndex + 1 : 0;
   updateActiveItem();
 });
+
+
