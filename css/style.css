@@ -245,7 +245,7 @@ div[class*="box"] {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 120px 30px;
+  padding: 160px 30px 120px;
   gap: 20px;
   background-image: url(../image/top-view-avocado-toast-with-radish-seeds-plate-with-copy-space.jpg);
   background-size: 100%;
@@ -301,13 +301,16 @@ div[class*="box"] {
   opacity: 0.7;
 }
 
-/* input[type="text"] {
+.search {
   width: 200px;
-  height: 30px;
+  height: 40px;
   border-radius: 10px;
-} */
+  outline: none;
+  color: white;
+  background-color: #e4c590;
+}
 
-::placeholder {
+input[placeholder=search]::placeholder {
   font-size: 20px;
   padding: 10px 10px;
 }
@@ -552,11 +555,11 @@ svg {
 /*contact*/
 
 .contact_box {
+  height: 800px;
   display: flex;
+  padding: 90px 200px 0 0;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 200px;
-  height: 1000px;
   background-image: url(../image/top-view-delicious-mimosa-salad-inside-plate-dark-blue-background.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -582,25 +585,38 @@ form{
 }
 
 .contact_and_form{
-  width: 400px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
   text-align: center;
-  background-color: blanchedalmond;
+  padding: 40px;
+  background-color: #383838;
 }
 
 
-input{
+.firstname,.email
+{
   height: 60px;
-  border-radius: 20px;
-  padding: 10px;
-  outline: none;
+  border-radius: 10px;
+  background-color: rgb(94, 94, 94);
+  outline: rgb(255, 217, 0);
+  color: white;
+  caret-color: white;
+}
+::placeholder {
+  font-size: 20px;
+  padding: 10px 10px;
+  color: white;
 }
 
 button[type=submit]{
   height: 50px;
   border-radius: 10px;
+}
+
+button:hover{
+  background-color: #e4c590;
 }
 
 input.invalid {
@@ -634,14 +650,12 @@ input.invalid {
  /*aqedan*/
 
  textarea[name=textarea] {
-  /* background-color: var(--cards_and_footer_color); */
+  height: 150px;
+  background-color:rgb(94, 94, 94);
   resize: none;
-  /* outline: none;
+  outline: none;
   border: none;
   padding: 6px 8px;
   color: #FFFFFF;
-  caret-color: #FFFFFF; */
+  caret-color: #FFFFFF; 
  }
-
-
- 
