@@ -375,6 +375,11 @@ input[placeholder=search]::placeholder {
   position: relative;
 }
 
+.no_recipe{
+  font-size: 30px;
+  color: black;
+}
+
 /* button information */
 
 .button_information {

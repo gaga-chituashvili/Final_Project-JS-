@@ -1,49 +1,50 @@
 //header//
 
-
-const activePage = window.location.pathname;
-console.log(activePage);
-const navLink=document.querySelectorAll(`nav a`)
-navLink.forEach(link=>{
-  console.log(link.href);
-  
-  if(link.href.includes(`${activePage}`)){
-    console.log(activePage);
-    
+const fetchProduct = async () => {
+  try {
+    const response = await fetch('https://dummyjson.com/recipes');
+    if (!response.ok) throw new Error("Network response was not ok");
+    const result = await response.json();
+    return result.recipes || [];   
+  } catch (error) {
+    console.error('Error fetching recipes:', error);
+    return []; 
   }
-  
-})
-
-// menu
-const fetchproduct = async () => {
-  const response = await fetch(`https://dummyjson.com/recipes`);
-  const result = await response.json();
-  return result.recipes;
 };
 
+
 const createCards = async (recipes) => {
-  const container = document.querySelector(`.card_box`);
-  for (let item of recipes) {
-    let card = `
-          <section class="card">
-      <article class="imgcard"><img class="image" src="${item.image}"></article>
-      <p class="title">${item.name}</p>
-      <p class="ing">${item.ingredients}</p>
-      <article class="desc_article">
-        <button class="button_information">
-          <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-          </svg>
-          <span>Information</span>
-        </button>
-                           <img src="image/xmark-circle-svgrepo-com.svg" class="xmark">
-                          <p class="instructions">${item.instructions}</p>
-                          </article>
+  const container = document.querySelector('.card_box');
+  container.innerHTML = '';  
+
+  if (recipes.length === 0) {
+    container.innerHTML = '<p class="no_recipe">No Recipes Found</p>'; 
+    return;
+  }
+
+  recipes.forEach(item => {
+    const card = `
+      <section class="card">
+        <article class="imgcard">
+          <img class="image" src="${item.image}" alt="${item.name}">
+        </article>
+        <p class="title">${item.name}</p>
+        <p class="ing">${item.ingredients}</p>
+        <article class="desc_article">
+          <button class="button_information">
+            <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+              <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+              <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+            </svg>
+            <span>Information</span>
+          </button>
+          <img src="image/xmark-circle-svgrepo-com.svg" class="xmark" style="display: none;">
+          <p class="instructions" style="display: none;">${item.instructions}</p>
+        </article>
       </section>`;
 
     container.innerHTML += card;
-  }
+  });
 
   const xmarks = document.querySelectorAll(".xmark");
   const instructions = document.querySelectorAll(".instructions");
@@ -67,27 +68,25 @@ const createCards = async (recipes) => {
 };
 
 const renderCards = async () => {
-  const recipes = await fetchproduct();
+  const recipes = await fetchProduct();
   createCards(recipes);
 };
 
 renderCards();
 
-const search = document.querySelector(`.search`);
-search.addEventListener(`change`, async (event) => {
-  const recipes = await fetchproduct();
-  const filter = recipes.filter((recipe) =>
+const search = document.querySelector('.search');
+search.addEventListener('input', async (event) => {
+  const recipes = await fetchProduct();
+  const filter = recipes.filter(recipe =>
     recipe.name.toLowerCase().includes(event.target.value.toLowerCase())
   );
-  const container = document.querySelector(`.card_box`);
-  container.innerHTML = ``;
-  createCards(filter);
+  createCards(filter); 
 });
 
-//input//
+//contact//
 
-const inputs = document.querySelectorAll("input");
-const textarea = document.querySelector("textarea");
+const inputs = document.querySelectorAll('input');
+const textarea = document.querySelector('textarea');
 
 const patterns = {
   Firstname: /^[a-z\d]{1,12}$/i,
@@ -106,6 +105,7 @@ function validateInput(field) {
   }
 }
 
+
 inputs.forEach((input) => {
   input.addEventListener("keyup", (event) => {
     validateInput(event.target);
@@ -115,3 +115,4 @@ inputs.forEach((input) => {
 textarea.addEventListener("keyup", (event) => {
   validateInput(event.target);
 });
+
