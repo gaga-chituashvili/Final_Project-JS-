@@ -5,6 +5,8 @@
 
 /* header */
 
+
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -33,9 +35,41 @@
   opacity: transparent;
 }
 
-.header_li_span {
-  color: white;
+/* Style for the navigation bar */
+
+.li_link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  padding: 10px 15px;
+  transition: all 0.3s ease; 
 }
+
+.li_link:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #e4c590; 
+  transition: width 0.4s ease-in-out; 
+}
+
+.li_link:hover {
+  color: #e4c590; 
+  transform: translateY(-5px); 
+  letter-spacing: 2px; 
+}
+
+.li_link:hover:before {
+  width: 100%; 
+}
+
+
+
 
 /* find button*/
 
