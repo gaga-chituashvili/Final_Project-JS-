@@ -21,19 +21,36 @@
   z-index: 1;
   padding: 20px;
   background-color: rgb(33, 33, 33);
+  background-color: rgb(33, 33, 33); 
+  transition: background-color 0.3s, box-shadow 0.3s; 
 }
+
+
+.transparent-header {
+  background-color: transparent;
+  box-shadow: none; 
+}
+
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.8); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
 
 .logo{
   cursor: pointer;
 }
 
 .header_xmark{
+  font-size:30px ;
+  color: #e4c590;
   display: none;
 }
 
 .header_burger{
-  width: 30px;
-  color: white;
+  font-size:30px ;
+  color: #e4c590;
   display: none;
 }
 
@@ -299,7 +316,7 @@ div[class*="box"] {
   padding: 160px 30px 120px;
   gap: 20px;
   background-image: url(../image/top-view-avocado-toast-with-radish-seeds-plate-with-copy-space.jpg);
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
 }
 
@@ -615,14 +632,13 @@ svg {
 /*contact*/
 
 .contact_box {
-  height: 800px;
   display: flex;
-  padding-right: 200px;
+  padding: 150px 150px 150px 0;
   justify-content: flex-end;
   align-items: center;
   background-image: url(../image/top-view-delicious-mimosa-salad-inside-plate-dark-blue-background.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
 }
 
@@ -632,7 +648,6 @@ h3{
 }
 
 .contact_and_form {
-  width: 600px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -755,7 +770,8 @@ input.invalid + p {
 
 .about_section{
   background-image: url(../image/front-view-sliced-cheese-fork-dark-meal-color-photo-snack-breakfast-crisp.jpg);
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   width: 100%;
   display: flex;
@@ -850,6 +866,9 @@ h5{
   position: relative;
   padding-bottom: 5px;
 }
+
+
+
 
 
 

@@ -13,6 +13,15 @@
   .nav_section_img{
     display: none;
   }
+
+  .contact_box{
+    justify-content: center;
+    padding-inline: 40px;
+  }
+  .contact_and_form{
+    width: 300px;
+    padding: 20px;
+  }
 }
 
 @media(max-width:481px){
@@ -22,8 +31,15 @@
   .header{
     padding: 10px;
   }
+  .header_nav{
+    top: 70px;
+  }
   .logo{
     width: 100px;
+  }
+  .search{
+    width: 150px;
+    height: 35px;
   }
   .about_title{
     font-size: 20px;

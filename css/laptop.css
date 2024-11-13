@@ -24,12 +24,41 @@
 
 @media(max-width:770px){
 
+
+  .header_nav {
+    position: fixed;
+    top: 90px;
+    right: -100%;
+    background-color: #212121;
+    width: 200px;
+    height: 144px;
+    padding: 16px 56px 16px 16px;
+    transition: .3s linear;
+    border-radius: 0 0 20px 20px;
+}
+.li_link{
+    color: #e4c590;
+}
+
+.header_ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 15px;
+}
+
+.header_burger {
+    display: block;
+}
+
+.show {
+    right: 0;
+}
+
   .header_burger{
     display: block;
   }
-  .header_ul{
-    display: none;
-  }
+ 
   .find_button{
     display: none;
   }
@@ -43,7 +72,13 @@
     justify-content: center;
     align-items: center;
   }
+
+  .contact_box{
+    padding: 80px 80px 80px 0;
+  }
   .footer{
     padding: 30px 70px;
   }
+
+  
 }
