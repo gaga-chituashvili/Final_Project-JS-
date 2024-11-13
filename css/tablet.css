@@ -1,73 +1,56 @@
 /*768px-481px*/
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      padding: 15px;
-    }
-  
-    .header_ul {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-  
-    .index_section {
-      height: 700px;
-    }
-  
-    .find_button {
-      padding: 1rem 2rem;
-      font-size: 0.75rem;
-    }
-  
-    .card_box {
-      flex-direction: row;
-      justify-content: center;
-      padding: 120px 30px;
-    }
-  
-    .card {
-      max-width: 320px;
-      width: 100%;
-    }
-  
-    .footer {
-      flex-direction: column;
-      padding: 30px;
-      gap: 20px;
-    }
-  
-    .footer_ul {
-      flex-direction: column;
-    }
-  
-    .contact_box {
-      padding: 90px 50px 0 0;
-      justify-content: center;
-    }
-  
-    .contact_and_form {
-      width: 80%;
-      padding: 30px;
-    }
-  
-    .about_section {
-      flex-direction: column;
-      padding: 80px;
-    }
-  
-    .about_img {
-      width: 400px;
-      height: 400px;
-    }
-  
-    .about_chef {
-      width: 180px;
-      height: 180px;
-    }
-  
-    .about_text_section {
-      width: 70%;
-    }
+@media(max-width:619px){
+  .index_section{
+    height: 300px;
   }
+  .footer{
+    padding: 30px 50px;
+  }
+  .about_section{
+   padding: 30px;
+  }
+  .nav_section_img{
+    display: none;
+  }
+}
+
+@media(max-width:481px){
+  .container{
+    padding-top: 70px;
+  }
+  .header{
+    padding: 10px;
+  }
+  .logo{
+    width: 100px;
+  }
+  .about_title{
+    font-size: 20px;
+  }
+  .about_text{
+    display: none;
+    font-size: 15px;
+  }
+  .h5{
+    font-size: 15px;
+  }
+  .footer_li_link{
+    font-size: 15px;
+  }
+  .nav_section{
+    align-items: center;
+    text-align: center;
+  }
+  .footer{
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+  .icon_and_nav_section{
+    align-items: center;
+  }
+  .about_article{
+    text-align: center;
+  }
+}

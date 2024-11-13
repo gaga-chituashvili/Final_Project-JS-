@@ -1,6 +1,7 @@
 .container {
   width: min(100%, 1440px);
   margin: auto;
+  padding-top: 90px;
 }
 
 /* header */
@@ -24,6 +25,16 @@
 
 .logo{
   cursor: pointer;
+}
+
+.header_xmark{
+  display: none;
+}
+
+.header_burger{
+  width: 30px;
+  color: white;
+  display: none;
 }
 
 .header_ul {
@@ -239,7 +250,6 @@ div[class*="box"] {
 .index_section {
   height: 800px;
   position: relative;
-  padding-top: 90px;
 }
 
 .arrow {
@@ -275,6 +285,9 @@ div[class*="box"] {
 .slider_item_active {
   display: block;
 }
+
+
+
 
 /*menu*/
 
@@ -426,7 +439,7 @@ svg {
   background-color: rgb(33, 33, 33);
   display: flex;
   justify-content: space-between;
-  padding: 48px 306px;
+  padding: 48px 200px;
 }
 
 .nav_section {
@@ -604,7 +617,7 @@ svg {
 .contact_box {
   height: 800px;
   display: flex;
-  padding: 90px 200px 0 0;
+  padding-right: 200px;
   justify-content: flex-end;
   align-items: center;
   background-image: url(../image/top-view-delicious-mimosa-salad-inside-plate-dark-blue-background.jpg);
@@ -837,5 +850,11 @@ h5{
   position: relative;
   padding-bottom: 5px;
 }
+
+
+
+
+
+
 
 
