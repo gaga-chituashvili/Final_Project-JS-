@@ -56,6 +56,8 @@ const createCards = async (recipes) => {
     return;
   }
 
+  
+
   recipes.forEach(item => {
     const card = `
       <section class="card">
@@ -78,6 +80,7 @@ const createCards = async (recipes) => {
       </section>`;
 
     container.innerHTML += card;
+    
   });
 
   const xmarks = document.querySelectorAll(".xmark");

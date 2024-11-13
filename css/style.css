@@ -277,19 +277,39 @@ div[class*="box"] {
   color: white;
   padding: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .left {
   left: 10px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .right {
   right: 10px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .arrow i {
   font-size: 24px;
 }
+
+.index_section {
+  position: relative;
+}
+
+.arrow:hover {
+  opacity: 0.7; 
+  transform: scale(1.1); 
+}
+
+
 
 .slider_item {
   width: 100%;
@@ -866,6 +886,7 @@ h5{
   position: relative;
   padding-bottom: 5px;
 }
+
 
 
 
