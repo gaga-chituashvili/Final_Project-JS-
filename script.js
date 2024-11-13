@@ -20,7 +20,6 @@ const headerNav = document.querySelector('.header_nav');
 
 function toggleMenu() {
   const isMenuVisible = headerNav.classList.contains('show');
-
   headerNav.classList.toggle('show', !isMenuVisible);
   burger.style.display = isMenuVisible ? 'block' : 'none';
   xmark.style.display = isMenuVisible ? 'none' : 'block';
@@ -29,8 +28,6 @@ function toggleMenu() {
 burger.addEventListener('click', toggleMenu);
 
 xmark.addEventListener('click', toggleMenu);
-
-
 
 
 
