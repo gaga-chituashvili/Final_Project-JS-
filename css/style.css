@@ -26,7 +26,7 @@
 }
 
 
-.transparent-header {
+.transparent_header {
   background-color: transparent;
   box-shadow: none; 
 }
@@ -543,42 +543,16 @@ svg {
 .h4_2,
 .h4_3 {
   font-family: "Inter", sans-serif;
-  font-size: var(25px);
+  font-size: 25px;
   font-weight: 400;
   line-height: 32px;
   color: white;
 }
 
-.h4_1::after {
-  content: "";
-  width: 70px;
-  height: 2px;
-  background-color: var(--footer_and_catalog_text_color);
-  display: block;
-  margin-top: 4px;
-}
-
-.h4_2::after {
-  content: "";
-  width: 120px;
-  height: 2px;
-  background-color: var(--footer_and_catalog_text_color);
-  display: block;
-  margin-top: 4px;
-}
-
-.h4_3::after {
-  content: "";
-  width: 80px;
-  height: 2px;
-  background-color: var(--footer_and_catalog_text_color);
-  display: block;
-  margin-top: 4px;
-}
 
 .footer_li_link {
   font-family: "Inter", sans-serif;
-  font-size: var(--footer_and_cards);
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #e4c590;
@@ -619,7 +593,7 @@ svg {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(158, 127, 102);
+  background-color: #e4c590;
   transition: transform 0.25s ease-out;
 }
 

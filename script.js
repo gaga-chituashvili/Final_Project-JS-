@@ -3,9 +3,9 @@ const header = document.querySelector('.header');
 
 function handleScroll() {
     if (window.scrollY > 50) {
-        header.classList.add('transparent-header');
+        header.classList.add('transparent_header');
     } else {
-        header.classList.remove('transparent-header');
+        header.classList.remove('transparent_header');
     }
 }
 
