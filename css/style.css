@@ -286,6 +286,7 @@ div[class*="box"] {
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
+  border-radius: 50%;
 }
 
 .right {
@@ -294,6 +295,7 @@ div[class*="box"] {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  border-radius: 50%;
 }
 
 .arrow i {
