@@ -9,8 +9,6 @@ function handleScroll() {
     }
 }
 
-window.addEventListener('scroll', handleScroll);
-
 
 //burger icon//
 
@@ -30,6 +28,70 @@ burger.addEventListener('click', toggleMenu);
 xmark.addEventListener('click', toggleMenu);
 
 
+window.addEventListener('scroll', handleScroll);
+
+
+
+//mode//
+
+const cardBox = document.querySelector('.card_box');
+const headerMode = document.querySelector('.header');
+const footerMode = document.querySelector('.footer');
+const light = document.querySelector('.light');
+const dark = document.querySelector('.dark');
+
+
+const toggleModeInStorage = () => {
+  const isLightMode = localStorage.getItem('lightmode');
+  if (isLightMode) {
+    localStorage.removeItem('lightmode');
+  } else {
+    localStorage.setItem('lightmode', 'true');
+  }
+};
+
+
+const applyMode = () => {
+  const isLightMode = localStorage.getItem('lightmode');
+
+  
+  light.style.display = isLightMode ? 'block' : 'none';
+  dark.style.display = isLightMode ? 'none' : 'block';
+
+  
+  headerMode.classList.toggle('header_back', !isLightMode);
+  footerMode.classList.toggle('footer_back', !isLightMode);
+};
+
+
+const applyCardBoxMode = () => {
+  const isLightMode = localStorage.getItem('lightmode');
+  cardBox.classList.toggle('card_box_back', !isLightMode);
+};
+
+
+light.addEventListener('click', () => {
+  toggleModeInStorage();
+  applyMode();
+  applyCardBoxMode();
+});
+
+dark.addEventListener('click', () => {
+  toggleModeInStorage();
+  applyMode();
+  applyCardBoxMode();
+});
+
+
+applyMode();
+applyCardBoxMode();
+
+
+
+
+
+
+
 
 
 //menus//
@@ -45,6 +107,7 @@ const fetchProduct = async () => {
     return []; 
   }
 };
+
 
 
 const createCards = async (recipes) => {
@@ -120,6 +183,8 @@ search.addEventListener('input', async (event) => {
   createCards(filter); 
 });
 
+
+
 //contact//
 
 const inputs = document.querySelectorAll('input');
@@ -152,6 +217,12 @@ inputs.forEach((input) => {
 textarea.addEventListener("keyup", (event) => {
   validateInput(event.target);
 });
+
+
+
+
+
+
 
 
 
