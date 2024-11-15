@@ -673,7 +673,7 @@ h3{
 input, textarea {
   height: 60px;
   border-radius: 10px;
-  background-color: rgb(94, 94, 94);
+  background-color: #a5a5a5;
   outline: rgb(255, 217, 0);
   color: white;
   caret-color: white;
