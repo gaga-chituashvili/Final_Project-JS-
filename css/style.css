@@ -7,7 +7,6 @@
 /* header */
 
 
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -20,9 +19,12 @@
   transform: translateX(-50%);
   z-index: 1;
   padding: 20px;
-  background-color: rgb(33, 33, 33);
   background-color: rgb(33, 33, 33); 
   transition: background-color 0.3s, box-shadow 0.3s; 
+}
+
+.header_back{
+  background-color: rgb(165, 165, 165);
 }
 
 
@@ -337,6 +339,10 @@ div[class*="box"] {
   align-items: center;
   padding: 160px 30px 120px;
   gap: 20px;
+  background-color: #212121;
+}
+
+.card_box_back{
   background-image: url(../image/top-view-avocado-toast-with-radish-seeds-plate-with-copy-space.jpg);
   background-size: cover;
   background-position: center;
@@ -429,7 +435,7 @@ input[placeholder=search]::placeholder {
 
 .no_recipe{
   font-size: 30px;
-  color: black;
+  color: #a5a5a5;
 }
 
 /* button information */
@@ -479,6 +485,11 @@ svg {
   display: flex;
   justify-content: space-between;
   padding: 48px 200px;
+}
+
+
+.footer_back{
+  background-color: rgb(165, 165, 165);
 }
 
 .nav_section {
@@ -852,6 +863,7 @@ h5{
 .about_article{
   font-size: 20px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   row-gap: 20px;
 }
@@ -862,6 +874,50 @@ h5{
   position: relative;
   padding-bottom: 5px;
 }
+
+/*mode*/
+
+
+.mode_article{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4c590;
+  cursor: pointer;
+}
+.mode_article:hover{
+  box-shadow: 0 0 5px 5px #e4c590;
+}
+
+.logo_and_mode{
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.dark,.light{
+  font-size: 30px;
+}
+
+
+.light_mode{
+  background-color: #212121;
+}
+
+.light_mode .mode_article{
+  background-color: transparent;
+  color: white;
+  border: 1px solid #e4c590;
+}
+
+.light_mode .dark{
+  background-color: transparent;
+  border: 1px solid #e4c590;
+}
+
 
 
 

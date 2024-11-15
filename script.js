@@ -46,7 +46,7 @@ const toggleModeInStorage = () => {
   if (isLightMode) {
     localStorage.removeItem('lightmode');
   } else {
-    localStorage.setItem('lightmode', 'true');
+    localStorage.setItem('lightmode', true);
   }
 };
 
