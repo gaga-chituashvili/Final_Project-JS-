@@ -1,3 +1,6 @@
+@import url(variable.css);
+
+
 .container {
   width: min(100%, 1440px);
   margin: auto;
@@ -19,7 +22,7 @@
   transform: translateX(-50%);
   z-index: 1;
   padding: 20px;
-  background-color: rgb(33, 33, 33); 
+  background-color: #212121; 
   transition: background-color 0.3s, box-shadow 0.3s; 
 }
 
@@ -45,12 +48,14 @@
 }
 
 .header_xmark{
+  font-family: "Inter", sans-serif;
   font-size:30px ;
   color: #e4c590;
   display: none;
 }
 
 .header_burger{
+  font-family: "Inter", sans-serif;
   font-size:30px ;
   color: #e4c590;
   display: none;
@@ -269,6 +274,60 @@ div[class*="box"] {
 .index_section {
   height: 700px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.index_section_title{
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  text-shadow: 0 0 10px black;
+    font-weight: bold;
+    opacity: 0; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    letter-spacing: 0.1em;
+    animation: slideIn 3s ease-out forwards, typing 5s steps(50) 2s infinite;
+}
+
+@keyframes slideIn {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+/* Optional: Add a cursor to the typing effect */
+.index_section_title::after {
+  content: '|';
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
 }
 
 .arrow {
@@ -394,6 +453,7 @@ div[class*="box"] {
 }
 
 .ing {
+  font-family: "Inter", sans-serif;
   color: white;
   font-size: 15px;
   font-weight: 400;
@@ -411,6 +471,7 @@ div[class*="box"] {
 }
 
 input[placeholder=search]::placeholder {
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   padding: 10px 10px;
 }
@@ -434,6 +495,7 @@ input[placeholder=search]::placeholder {
 }
 
 .no_recipe{
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   color: #a5a5a5;
 }
@@ -473,6 +535,7 @@ svg {
 }
 
 .button_information span {
+  font-family: "Inter", sans-serif;
   color: rgb(88, 88, 88);
   font-size: 18px;
   font-weight: 100;
@@ -650,6 +713,7 @@ svg {
 }
 
 h3{
+  font-family: "Inter", sans-serif;
   font-size: 30px;
   color: white;
 }
@@ -734,6 +798,7 @@ input.invalid + p {
  
 
 .sub_a{
+  font-family: "Inter", sans-serif;
   display: block;
   width: 100%;
   height: 40px;
@@ -780,7 +845,7 @@ input.invalid + p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -789,31 +854,21 @@ input.invalid + p {
   position: relative;
 }
 
-.about_img{
+
+.about_img {
   width: 500px;
   height: 500px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  border-radius: 8px;  
 }
 
-.about_img:hover{
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
+.about_img:hover {
+  transform: scale(1.1); 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);  
+  opacity: 0.85;  
 }
 
-
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
 
 .about_chef{
   width: 200px;
@@ -823,6 +878,13 @@ input.invalid + p {
   left: 55%;
   bottom: 0;
   transform: translateX(-50%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  border-radius: 8px;  
+}
+.about_chef:hover{
+  transform: scale(1.1); 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);  
+  opacity: 0.85;  
 }
 
 
@@ -834,12 +896,14 @@ input.invalid + p {
 
 
 .about_title{
+  font-family: "Inter", sans-serif;
   font-size: 50px;
   color: white;
   text-align: center;
 }
 
 .about_text{
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
   text-align: center;
@@ -847,6 +911,7 @@ input.invalid + p {
 
 
 h5{
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
 }
@@ -861,6 +926,7 @@ h5{
 }
 
 .about_article{
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -917,8 +983,6 @@ h5{
   background-color: transparent;
   border: 1px solid #e4c590;
 }
-
-
 
 
 

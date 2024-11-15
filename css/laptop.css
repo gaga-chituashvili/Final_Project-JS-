@@ -61,6 +61,14 @@
 
 }
 
+@media(max-width:900px){
+  .index_section_title{
+    font-size: 30px;
+  }
+}
+
+
+
 @media(max-width:770px){
 
   .nav_section_img{

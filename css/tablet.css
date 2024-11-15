@@ -29,6 +29,10 @@
   .light,.dark{
     font-size: 20px;
   }
+
+  .index_section_title{
+    font-size: 20px;
+  }
   
 }
 
@@ -76,6 +80,9 @@
   }
   .about_article{
     text-align: center;
+  }
+  .index_section_title{
+    font-size: 15px;
   }
   
 }
