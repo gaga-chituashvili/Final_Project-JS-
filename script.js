@@ -1,3 +1,49 @@
+
+const logo=document.querySelector(`.logo`);
+logo.addEventListener(`click`,()=>{
+  window.location.reload(true);
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const homeButton = document.querySelector('.home');
+  
+  if (homeButton) {  
+    homeButton.addEventListener('click', () => {
+      location.href = 'index.html';
+    });
+  } else {
+    console.error('Home button not found');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menusButton = document.querySelector('.menus');
+  
+  if (menusButton) {  
+    menusButton.addEventListener('click', () => {
+      location.href = 'menu.html';
+    });
+  } else {
+    console.error('Menu button not found');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contactButton = document.querySelector('.contact');
+  
+  if (contactButton) {  
+    contactButton.addEventListener('click', () => {
+      location.href = 'contact.html';
+    });
+  } else {
+    console.error('Contact button not found');
+  }
+});
+
+
+
+
 //header//
 const header = document.querySelector('.header');
 
