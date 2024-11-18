@@ -66,7 +66,9 @@ const applyMode = () => {
 
 const applyCardBoxMode = () => {
   const isLightMode = localStorage.getItem('lightmode');
-  cardBox.classList.toggle('card_box_back', !isLightMode);
+  if (cardBox) {
+    cardBox.classList.toggle('card_box_back', !isLightMode);
+  }
 };
 
 
@@ -112,10 +114,17 @@ const fetchProduct = async () => {
 
 const createCards = async (recipes) => {
   const container = document.querySelector('.card_box');
-  container.innerHTML = '';  
+
+  if (container)
+  {
+    container.innerHTML = '';
+  }
 
   if (recipes.length === 0) {
-    container.innerHTML = '<p class="no_recipe">No Recipes Found</p>'; 
+    if (container)
+    {
+      container.innerHTML = '<p class="no_recipe">No Recipes Found</p>'; 
+    }
     return;
   }
 
@@ -142,7 +151,10 @@ const createCards = async (recipes) => {
         </article>
       </section>`;
 
-    container.innerHTML += card;
+    if (container)
+    {
+      container.innerHTML += card;
+    }
     
   });
 
@@ -175,13 +187,58 @@ const renderCards = async () => {
 renderCards();
 
 const search = document.querySelector('.search');
-search.addEventListener('input', async (event) => {
-  const recipes = await fetchProduct();
-  const filter = recipes.filter(recipe =>
-    recipe.name.toLowerCase().includes(event.target.value.toLowerCase())
-  );
-  createCards(filter); 
+if (search)
+{
+  search.addEventListener('input', async (event) => {
+    const recipes = await fetchProduct();
+    const filter = recipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    createCards(filter); 
+  });
+}
+
+
+//slider//
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelectorAll(".slider_item");
+  let currentIndex = 0;
+  
+  
+  function changeSlide() {
+
+    slides.forEach(slide => {
+      slide.classList.remove("slider_item_active");
+    });
+    
+  
+    slides[currentIndex].classList.add("slider_item_active");
+  }
+  
+  const leftArrow = document.querySelector(".arrow.left");
+  const rightArrow = document.querySelector(".arrow.right");
+
+  leftArrow.addEventListener("click", function() {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    changeSlide();
+  });
+
+  rightArrow.addEventListener("click", function() {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    changeSlide();
+  });
+
+  
+  setInterval(function() {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    changeSlide();
+  }, 5000); 
+  
 });
+
+
 
 
 
@@ -217,12 +274,5 @@ inputs.forEach((input) => {
 textarea.addEventListener("keyup", (event) => {
   validateInput(event.target);
 });
-
-
-
-
-
-
-
 
 
