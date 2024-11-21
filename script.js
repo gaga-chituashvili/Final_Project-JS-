@@ -1,63 +1,34 @@
+// Reload the page when logo is clicked
+const logo = document.querySelector('.logo');
+logo.addEventListener('click', () => window.location.reload(true));
 
-const logo=document.querySelector(`.logo`);
-logo.addEventListener(`click`,()=>{
-  window.location.reload(true);
-})
-
-
+// Navigate to respective pages when buttons are clicked
 document.addEventListener('DOMContentLoaded', () => {
-  const homeButton = document.querySelector('.home');
-  
-  if (homeButton) {  
-    homeButton.addEventListener('click', () => {
-      location.href = 'index.html';
-    });
-  } else {
-    console.error('Home button not found');
-  }
-});
+  const buttonActions = [
+    { buttonClass: '.home', url: 'index.html' },
+    { buttonClass: '.menus', url: 'menu.html' },
+    { buttonClass: '.contact', url: 'contact.html' },
+  ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const menusButton = document.querySelector('.menus');
-  
-  if (menusButton) {  
-    menusButton.addEventListener('click', () => {
-      location.href = 'menu.html';
-    });
-  } else {
-    console.error('Menu button not found');
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const contactButton = document.querySelector('.contact');
-  
-  if (contactButton) {  
-    contactButton.addEventListener('click', () => {
-      location.href = 'contact.html';
-    });
-  } else {
-    console.error('Contact button not found');
-  }
-});
-
-
-
-
-//header//
-const header = document.querySelector('.header');
-
-function handleScroll() {
-    if (window.scrollY > 50) {
-        header.classList.add('transparent_header');
+  buttonActions.forEach(({ buttonClass, url }) => {
+    const button = document.querySelector(buttonClass);
+    if (button) {
+      button.addEventListener('click', () => location.href = url);
     } else {
-        header.classList.remove('transparent_header');
+      console.error(`${buttonClass} button not found`);
     }
+  });
+});
+
+// Header transparency on scroll
+const header = document.querySelector('.header');
+function handleScroll() {
+  header.classList.toggle('transparent_header', window.scrollY > 50);
 }
 
+window.addEventListener('scroll', handleScroll);
 
-//burger icon//
-
+// Burger menu toggle
 const burger = document.querySelector('.header_burger');
 const xmark = document.querySelector('.header_xmark');
 const headerNav = document.querySelector('.header_nav');
@@ -70,45 +41,27 @@ function toggleMenu() {
 }
 
 burger.addEventListener('click', toggleMenu);
-
 xmark.addEventListener('click', toggleMenu);
 
-
-window.addEventListener('scroll', handleScroll);
-
-
-
-//mode//
-
+// Light/Dark mode toggle
 const cardBox = document.querySelector('.card_box');
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
 const light = document.querySelector('.light');
 const dark = document.querySelector('.dark');
 
-
 const toggleModeInStorage = () => {
   const isLightMode = localStorage.getItem('lightmode');
-  if (isLightMode) {
-    localStorage.removeItem('lightmode');
-  } else {
-    localStorage.setItem('lightmode', true);
-  }
+  localStorage.setItem('lightmode', isLightMode ? '' : 'true');
 };
-
 
 const applyMode = () => {
   const isLightMode = localStorage.getItem('lightmode');
-
-  
   light.style.display = isLightMode ? 'block' : 'none';
   dark.style.display = isLightMode ? 'none' : 'block';
-
-  
   headerMode.classList.toggle('header_back', !isLightMode);
   footerMode.classList.toggle('footer_back', !isLightMode);
 };
-
 
 const applyCardBoxMode = () => {
   const isLightMode = localStorage.getItem('lightmode');
@@ -116,7 +69,6 @@ const applyCardBoxMode = () => {
     cardBox.classList.toggle('card_box_back', !isLightMode);
   }
 };
-
 
 light.addEventListener('click', () => {
   toggleModeInStorage();
@@ -130,54 +82,26 @@ dark.addEventListener('click', () => {
   applyCardBoxMode();
 });
 
-
 applyMode();
 applyCardBoxMode();
 
-
-
-
-
-
-
-
-
-//menus//
-
+// Fetch recipes and display cards
 const fetchProduct = async () => {
   try {
     const response = await fetch('https://dummyjson.com/recipes');
-    if (!response.ok) throw new Error("Network response was not ok");
+    if (!response.ok) throw new Error('Network response was not ok');
     const result = await response.json();
-    return result.recipes || [];   
+    return result.recipes || [];
   } catch (error) {
     console.error('Error fetching recipes:', error);
-    return []; 
+    return [];
   }
 };
 
-
-
-const createCards = async (recipes) => {
+const createCards = (recipes) => {
   const container = document.querySelector('.card_box');
-
-  if (container)
-  {
-    container.innerHTML = '';
-  }
-
-  if (recipes.length === 0) {
-    if (container)
-    {
-      container.innerHTML = '<p class="no_recipe">No Recipes Found</p>'; 
-    }
-    return;
-  }
-
-  
-
-  recipes.forEach(item => {
-    const card = `
+  container.innerHTML = recipes.length ? 
+    recipes.map(item => `
       <section class="card">
         <article class="imgcard">
           <img class="image" src="${item.image}" alt="${item.name}">
@@ -195,32 +119,22 @@ const createCards = async (recipes) => {
           <img src="image/xmark-circle-svgrepo-com.svg" class="xmark" style="display: none;">
           <p class="instructions" style="display: none;">${item.instructions}</p>
         </article>
-      </section>`;
+      </section>`).join('') : '<p class="no_recipe">No Recipes Found</p>';
 
-    if (container)
-    {
-      container.innerHTML += card;
-    }
-    
-  });
-
-  const xmarks = document.querySelectorAll(".xmark");
-  const instructions = document.querySelectorAll(".instructions");
-  const btn = document.querySelectorAll(".button_information");
-
-  btn.forEach((desc, index) => {
-    desc.addEventListener("click", () => {
-      desc.style.display = "none";
-      instructions[index].style.display = "block";
-      xmarks[index].style.display = "block";
+  // Toggle visibility of instructions
+  document.querySelectorAll('.button_information').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      document.querySelectorAll('.instructions')[index].style.display = 'block';
+      document.querySelectorAll('.xmark')[index].style.display = 'block';
     });
   });
 
-  xmarks.forEach((xmark, index) => {
-    xmark.addEventListener("click", () => {
-      xmark.style.display = "none";
-      instructions[index].style.display = "none";
-      btn[index].style.display = "block";
+  document.querySelectorAll('.xmark').forEach((xmark, index) => {
+    xmark.addEventListener('click', () => {
+      xmark.style.display = 'none';
+      document.querySelectorAll('.instructions')[index].style.display = 'none';
+      document.querySelectorAll('.button_information')[index].style.display = 'block';
     });
   });
 };
@@ -232,64 +146,43 @@ const renderCards = async () => {
 
 renderCards();
 
+// Search functionality
 const search = document.querySelector('.search');
-if (search)
-{
+if (search) {
   search.addEventListener('input', async (event) => {
     const recipes = await fetchProduct();
-    const filter = recipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-    createCards(filter); 
+    const filter = recipes.filter(recipe => recipe.name.toLowerCase().includes(event.target.value.toLowerCase()));
+    createCards(filter);
   });
 }
 
-
-//slider//
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const slides = document.querySelectorAll(".slider_item");
+// Slider functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slider_item');
   let currentIndex = 0;
-  
-  
-  function changeSlide() {
 
-    slides.forEach(slide => {
-      slide.classList.remove("slider_item_active");
-    });
-    
-  
-    slides[currentIndex].classList.add("slider_item_active");
-  }
-  
-  const leftArrow = document.querySelector(".arrow.left");
-  const rightArrow = document.querySelector(".arrow.right");
+  const changeSlide = () => {
+    slides.forEach(slide => slide.classList.remove('slider_item_active'));
+    slides[currentIndex].classList.add('slider_item_active');
+  };
 
-  leftArrow.addEventListener("click", function() {
+  document.querySelector('.arrow.left').addEventListener('click', () => {
     currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
     changeSlide();
   });
 
-  rightArrow.addEventListener("click", function() {
+  document.querySelector('.arrow.right').addEventListener('click', () => {
     currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
     changeSlide();
   });
 
-  
-  setInterval(function() {
+  setInterval(() => {
     currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
     changeSlide();
-  }, 5000); 
-  
+  }, 5000);
 });
 
-
-
-
-
-//contact//
-
+// Contact form validation
 const inputs = document.querySelectorAll('input');
 const textarea = document.querySelector('textarea');
 
@@ -299,26 +192,15 @@ const patterns = {
   Textarea: /^[\d\w@-]{1,150}$/i,
 };
 
-function validateInput(field) {
+const validateInput = (field) => {
   const pattern = patterns[field.name];
   if (pattern) {
-    if (pattern.test(field.value)) {
-      field.className = "valid";
-    } else {
-      field.className = "invalid";
-    }
+    field.className = pattern.test(field.value) ? 'valid' : 'invalid';
   }
-}
+};
 
+inputs.forEach(input => input.addEventListener('keyup', (event) => validateInput(event.target)));
+textarea.addEventListener('keyup', (event) => validateInput(event.target));
 
-inputs.forEach((input) => {
-  input.addEventListener("keyup", (event) => {
-    validateInput(event.target);
-  });
-});
-
-textarea.addEventListener("keyup", (event) => {
-  validateInput(event.target);
-});
 
 
