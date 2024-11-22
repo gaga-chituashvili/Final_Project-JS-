@@ -275,6 +275,7 @@ div[class*="box"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;  
 }
 
 
@@ -291,6 +292,7 @@ div[class*="box"] {
     overflow: hidden; 
     letter-spacing: 0.1em;
     animation: slideIn 3s ease-out forwards, typing 5s steps(50) 2s infinite;
+    z-index: 1;
 }
 
 @keyframes slideIn {
@@ -330,32 +332,37 @@ div[class*="box"] {
 }
 
 .arrow {
+  display: grid;
   position: absolute;
+  z-index: 1;
+  color: hsl(38, 61%, 73%);
+  font-size: 2.4rem;
+  border: 1px solid hsl(38, 61%, 73%);
+  width: 45px;
+  height: 45px;
+  place-items: center;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
+  transform:  rotate(45deg);
+  transition:  250ms ease;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
+
+.iteg{
+  transform: rotate(-45deg);
+}
+
 
 .left {
   left: 10px;
   position: absolute;
-  left: 10px;
   top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
+
 }
 
 .right {
   right: 10px;
   position: absolute;
-  right: 10px;
   top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
 }
 
 .arrow i {
@@ -367,10 +374,9 @@ div[class*="box"] {
 }
 
 .arrow:hover {
-  opacity: 0.7; 
-  transform: scale(1.1); 
-}
-
+  background-color: hsl(38, 61%, 73%);
+  color: hsla(0, 0%, 0%, 1);
+ }
 
 
 .slider_item {
@@ -383,7 +389,18 @@ div[class*="box"] {
 
 .slider_item_active {
   display: block;
+  animation: smoothScale 7s linear forwards;
+  transform-origin: center;  /* Scale from the center */
 }
+
+@keyframes smoothScale {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+
+
+
 
 
 
@@ -985,8 +1002,6 @@ h5{
 .footer_li_link.right:hover::after {
   transform-origin: bottom right;
 }
-
-
 
 
 
