@@ -2,8 +2,7 @@
 
 
 .container {
-  width: min(100%, 1440px);
-  margin: auto;
+  width: 100%;
   padding-top: 90px;
 }
 
@@ -1002,6 +1001,7 @@ h5{
 .footer_li_link.right:hover::after {
   transform-origin: bottom right;
 }
+
 
 
 
