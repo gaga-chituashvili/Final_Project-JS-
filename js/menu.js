@@ -5,7 +5,7 @@ logo.addEventListener('click', () => window.location.reload(true));
 // Navigate to respective pages when buttons are clicked
 document.addEventListener('DOMContentLoaded', () => {
   const buttonActions = [
-    { buttonClass: '.menu', url: 'menu.html' },
+    { buttonClass: '.menus', url: 'menu.html' },
   ];
 
   buttonActions.forEach(({ buttonClass, url }) => {
