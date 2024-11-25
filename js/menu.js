@@ -1,3 +1,4 @@
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -46,6 +47,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+const scrollUp=document.querySelector(`.scroll_up`);
+
+scrollUp.addEventListener(`click`,()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+})
+// Show the scroll button when user scrolls down a certain distance
+window.addEventListener('scroll', function() {
+  let scrollUpBtn = document.querySelector('.scroll_up');
+  if (window.scrollY > 200) {  // When user scrolls down 200px
+      scrollUpBtn.style.display = 'block';
+  } else {
+      scrollUpBtn.style.display = 'none';
+  }
+});
+
+// Hide the scroll button after 3 seconds
+setTimeout(function() {
+  document.querySelector('.scroll_up').classList.add('hide');
+}, 3000);
+
+// Scroll to top when clicked
+document.querySelector('.scroll_up').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 // Header transparency on scroll
 const header = document.querySelector('.header');
