@@ -637,11 +637,6 @@ textarea[name="textarea"] {
   color: white;
 }
 
-button[type="submit"] {
-  height: 50px;
-  border-radius: 10px;
-}
-
 
 button:hover {
   background-color: #e4c590;
@@ -693,11 +688,12 @@ input.invalid + p {
   text-align: center;
   position: relative;
   transition: all .35s;
+  background-color: transparent;
 }
 
 .sub_a span{
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .sub_a:after{
