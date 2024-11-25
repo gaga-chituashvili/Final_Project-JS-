@@ -689,6 +689,7 @@ input.invalid + p {
   position: relative;
   transition: all .35s;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .sub_a span{
