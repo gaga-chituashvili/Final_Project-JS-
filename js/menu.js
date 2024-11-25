@@ -1,22 +1,51 @@
-// Reload the page when logo is clicked
-const logo = document.querySelector('.logo');
-logo.addEventListener('click', () => window.location.reload(true));
-
-// Navigate to respective pages when buttons are clicked
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+  
+  const logo = document.querySelector('.logo');
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();  
+ 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    
+    setTimeout(() => {
+      window.location.href = 'menu.html';  
+    }, 500); 
+  });
+
+ 
   const buttonActions = [
     { buttonClass: '.menus', url: 'menu.html' },
+    
   ];
 
+  
   buttonActions.forEach(({ buttonClass, url }) => {
     const button = document.querySelector(buttonClass);
     if (button) {
-      button.addEventListener('click', () => location.href = url);
+      button.addEventListener('click', (e) => {
+        e.preventDefault();  
+
+        
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+        
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500);  
+      });
     } else {
       console.error(`${buttonClass} button not found`);
     }
   });
 });
+
 
 // Header transparency on scroll
 const header = document.querySelector('.header');
