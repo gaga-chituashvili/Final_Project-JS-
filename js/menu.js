@@ -105,44 +105,63 @@ xmark.addEventListener('click', toggleMenu);
 const cardBox = document.querySelector('.card_box');
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
-const light = document.querySelector('.light');
-const dark = document.querySelector('.dark');
-const aboutSection=document.querySelector(`.about_section`);
+const lightIcon = document.querySelector('.light');
+const darkIcon = document.querySelector('.dark');
 
-const toggleModeInStorage = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  localStorage.setItem('lightmode', isLightMode ? '' : 'true');
-};
 
-const applyMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  light.style.display = isLightMode ? 'block' : 'none';
-  dark.style.display = isLightMode ? 'none' : 'block';
-  headerMode.classList.toggle('header_back', !isLightMode);
-  footerMode.classList.toggle('footer_back', !isLightMode);
-};
-
-const applyCardBoxMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  if (cardBox) {
-    cardBox.classList.toggle('card_box_back', !isLightMode);
+const toggleModeInLocalStorage = () => {
+  const currentMode = localStorage.getItem('lightmode');
+  if (currentMode) {
+    localStorage.removeItem('lightmode'); 
+  } else {
+    localStorage.setItem('lightmode', true); 
   }
 };
 
-light.addEventListener('click', () => {
-  toggleModeInStorage();
+
+const applyMode = () => {
+  const isLightMode = localStorage.getItem('lightmode');
+
+  if (isLightMode) {
+    enableLightMode();
+  } else {
+    enableDarkMode();
+  }
+};
+
+
+const enableLightMode = () => {
+  lightIcon.style.display = 'none'; 
+  darkIcon.style.display = 'block'; 
+  headerMode.classList.add('header_back');
+  footerMode.classList.add('footer_back');
+  cardBox.classList.add('card_box_back');
+};
+
+
+const enableDarkMode = () => {
+  darkIcon.style.display = 'none'; 
+  lightIcon.style.display = 'block'; 
+  headerMode.classList.remove('header_back');
+  footerMode.classList.remove('footer_back');
+  cardBox.classList.remove('card_box_back');
+};
+
+
+lightIcon.addEventListener('click', () => {
+  toggleModeInLocalStorage();
   applyMode();
-  applyCardBoxMode();
 });
 
-dark.addEventListener('click', () => {
-  toggleModeInStorage();
+darkIcon.addEventListener('click', () => {
+  toggleModeInLocalStorage();
   applyMode();
-  applyCardBoxMode();
 });
+
 
 applyMode();
-applyCardBoxMode();
+
+
 
 
 

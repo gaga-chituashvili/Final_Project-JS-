@@ -45,6 +45,9 @@
   .about_section{
     padding: 50px;
   }
+  .about_section_back{
+    padding: 50px;
+  }
   .about_img{
     width: 300px;
     height: 300px;
@@ -81,8 +84,15 @@
     justify-content: center;
     align-items: center;
   }
+  .about_section_back{
+    justify-content: center;
+    align-items: center;
+  }
 
   .contact_box{
+    padding: 80px 80px 80px 0;
+  }
+  .contact_box_back{
     padding: 80px 80px 80px 0;
   }
   .footer{

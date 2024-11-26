@@ -73,51 +73,65 @@ xmark.addEventListener('click', toggleMenu);
 
 
 
+
 // Light/Dark mode toggle
-const cardBox = document.querySelector('.card_box');
+
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
+const contactBox = document.querySelector('.contact_box');
 const light = document.querySelector('.light');
 const dark = document.querySelector('.dark');
 
+
+const isLightMode = () => localStorage.getItem('lightmode') === 'true';
+
+
 const toggleModeInStorage = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  localStorage.setItem('lightmode', isLightMode ? '' : 'true');
+  const currentMode = isLightMode();
+  localStorage.setItem('lightmode', !currentMode);
 };
 
 const applyMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  light.style.display = isLightMode ? 'block' : 'none';
-  dark.style.display = isLightMode ? 'none' : 'block';
-  headerMode.classList.toggle('header_back', !isLightMode);
-  footerMode.classList.toggle('footer_back', !isLightMode);
-};
-
-const applyCardBoxMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  if (cardBox) {
-    cardBox.classList.toggle('card_box_back', !isLightMode);
+  if (isLightMode()) {
+    enableLightMode();
+  } else {
+    enableDarkMode();
   }
 };
+
+const enableLightMode = () => {
+  light.style.display = 'none';
+  dark.style.display = 'block';
+  headerMode.classList.add('header_back');
+  footerMode.classList.add('footer_back');
+  contactBox.classList.add('contact_box_back');
+};
+
+
+const enableDarkMode = () => {
+  dark.style.display = 'none';
+  light.style.display = 'block';
+  headerMode.classList.remove('header_back');
+  footerMode.classList.remove('footer_back');
+  contactBox.classList.remove('contact_box_back');
+};
+
 
 light.addEventListener('click', () => {
   toggleModeInStorage();
   applyMode();
-  applyCardBoxMode();
 });
 
 dark.addEventListener('click', () => {
   toggleModeInStorage();
   applyMode();
-  applyCardBoxMode();
 });
 
+
 applyMode();
-applyCardBoxMode();
 
+//validation
 
-
-// Contact form validation
 const inputs = document.querySelectorAll('input');
 const textarea = document.querySelector('textarea');
 

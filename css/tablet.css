@@ -10,11 +10,18 @@
   .about_section{
    padding: 30px;
   }
+  .about_section_back{
+    padding: 30px;
+   }
   .nav_section_img{
     display: none;
   }
 
   .contact_box{
+    justify-content: center;
+    padding-inline: 40px;
+  }
+  .contact_box_back{
     justify-content: center;
     padding-inline: 40px;
   }

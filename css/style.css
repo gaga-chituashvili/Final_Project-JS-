@@ -429,13 +429,15 @@ div[class*="box"] {
 /*menu*/
 
 .card_box {
+  background-image: url(../image/tasty-pizza-near-ingredients.jpg);
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 160px 30px 120px;
   gap: 20px;
-  background-color: #212121;
 }
 
 .card_box_back{
@@ -593,6 +595,17 @@ svg {
   background-position: center;
 }
 
+.contact_box_back{
+  background-image: url(../image/top-view-vegetables-as-fried-potatoes-garlic-around-note-pad-with-salt-garlic-crusher-wooden-surface-with-copy-space.jpg);
+  display: flex;
+  padding: 150px 150px 150px 0;
+  justify-content: flex-end;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 h3{
   font-family: "Inter", sans-serif;
   font-size: 30px;
@@ -724,7 +737,19 @@ input.invalid + p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding: 100px;
+  position: relative;
+}
+
+.about_section_back{
+  background-image: url(../image/top-view-sandwich-with-cream-cheese-blueberries-plate-with-spoon-copy-space.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: space-between;

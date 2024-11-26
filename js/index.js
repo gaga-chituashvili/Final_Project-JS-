@@ -49,9 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
- 
-
 // Header transparency on scroll
 const header = document.querySelector('.header');
 function handleScroll() {
@@ -75,47 +72,65 @@ function toggleMenu() {
 burger.addEventListener('click', toggleMenu);
 xmark.addEventListener('click', toggleMenu);
 
+
+
 // Light/Dark mode toggle
-const cardBox = document.querySelector('.card_box');
+
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
+const aboutSection = document.querySelector('.about_section');
+const aboutTitle = document.querySelector('.about_title');
+const aboutText = document.querySelector('.about_text');
+const h5 = document.querySelector('h5');
 const light = document.querySelector('.light');
 const dark = document.querySelector('.dark');
 
-const toggleModeInStorage = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  localStorage.setItem('lightmode', isLightMode ? '' : 'true');
-};
-
-const applyMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  light.style.display = isLightMode ? 'block' : 'none';
-  dark.style.display = isLightMode ? 'none' : 'block';
-  headerMode.classList.toggle('header_back', !isLightMode);
-  footerMode.classList.toggle('footer_back', !isLightMode);
-};
-
-const applyCardBoxMode = () => {
-  const isLightMode = localStorage.getItem('lightmode');
-  if (cardBox) {
-    cardBox.classList.toggle('card_box_back', !isLightMode);
+const toggleMode = () => {
+  const currentMode = localStorage.getItem('lightmode');
+  if (currentMode) {
+    localStorage.removeItem('lightmode');
+  } else {
+    localStorage.setItem('lightmode', 'enabled');
   }
 };
 
+
+const applyMode = () => {
+  const isLightMode = localStorage.getItem('lightmode');
+
+  if (isLightMode) {
+    light.style.display = 'none';
+    dark.style.display = 'block';
+    headerMode.classList.add('header_back');
+    footerMode.classList.add('footer_back');
+    aboutSection.classList.replace('about_section', 'about_section_back');
+    aboutTitle.style.color = 'black';
+    aboutText.style.color = 'black';
+    h5.style.color = 'black';
+  } else {
+    dark.style.display = 'none';
+    light.style.display = 'block';
+    headerMode.classList.remove('header_back');
+    footerMode.classList.remove('footer_back');
+    aboutSection.classList.replace('about_section_back', 'about_section');
+    aboutTitle.style.color = 'white';
+    aboutText.style.color = 'white';
+    h5.style.color = 'white';
+  }
+};
+
+
 light.addEventListener('click', () => {
-  toggleModeInStorage();
+  toggleMode();
   applyMode();
-  applyCardBoxMode();
 });
 
 dark.addEventListener('click', () => {
-  toggleModeInStorage();
+  toggleMode();
   applyMode();
-  applyCardBoxMode();
 });
 
 applyMode();
-applyCardBoxMode();
 
 
 
