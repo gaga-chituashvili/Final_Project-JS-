@@ -848,19 +848,6 @@ h5{
 /*mode*/
 
 
-.mode_article{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e4c590;
-  cursor: pointer;
-}
-.mode_article:hover{
-  box-shadow: 0 0 5px 5px #e4c590;
-}
 
 .logo_and_mode{
   display: flex;
@@ -868,25 +855,27 @@ h5{
   column-gap: 30px;
 }
 
-.dark,.light{
+
+
+.dark,.light {
   font-size: 30px;
-}
-
-
-.light_mode{
-  background-color: #212121;
-}
-
-.light_mode .mode_article{
-  background-color: transparent;
   color: white;
-  border: 1px solid #e4c590;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.light_mode .dark{
-  background-color: transparent;
-  border: 1px solid #e4c590;
+
+.dark:hover {
+  color: #e4c590;
+  transform: scale(1.1); 
 }
+
+.light:hover {
+  color: #e4c590; 
+  transform: scale(1.1); 
+}
+
+
 
 
 /* footer */
