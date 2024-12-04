@@ -76,14 +76,15 @@ xmark.addEventListener('click', toggleMenu);
 
 // Light/Dark mode toggle
 
+
+const toggle=document.querySelector(`.toggle`);
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
 const aboutSection = document.querySelector('.about_section');
 const aboutTitle = document.querySelector('.about_title');
 const aboutText = document.querySelector('.about_text');
 const h5 = document.querySelector('h5');
-const light = document.querySelector('.light');
-const dark = document.querySelector('.dark');
+
 
 const toggleMode = () => {
   const currentMode = localStorage.getItem('lightmode');
@@ -99,8 +100,7 @@ const applyMode = () => {
   const isLightMode = localStorage.getItem('lightmode');
 
   if (isLightMode) {
-    light.style.display = 'none';
-    dark.style.display = 'block';
+    toggle.classList.remove(`dark`);
     headerMode.classList.add('header_back');
     footerMode.classList.add('footer_back');
     aboutSection.classList.replace('about_section', 'about_section_back');
@@ -108,8 +108,7 @@ const applyMode = () => {
     aboutText.style.color = 'black';
     h5.style.color = 'black';
   } else {
-    dark.style.display = 'none';
-    light.style.display = 'block';
+    toggle.classList.add(`dark`);
     headerMode.classList.remove('header_back');
     footerMode.classList.remove('footer_back');
     aboutSection.classList.replace('about_section_back', 'about_section');
@@ -120,15 +119,10 @@ const applyMode = () => {
 };
 
 
-light.addEventListener('click', () => {
-  toggleMode();
-  applyMode();
-});
-
-dark.addEventListener('click', () => {
-  toggleMode();
-  applyMode();
-});
+toggle.addEventListener(`click`,()=>{
+  toggleMode()
+  applyMode()
+})
 
 applyMode();
 

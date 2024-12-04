@@ -102,11 +102,10 @@ xmark.addEventListener('click', toggleMenu);
 
 
 // Light/Dark mode toggle
+const toggle=document.querySelector(`.toggle`);
 const cardBox = document.querySelector('.card_box');
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
-const lightIcon = document.querySelector('.light');
-const darkIcon = document.querySelector('.dark');
 
 
 const toggleModeInLocalStorage = () => {
@@ -131,8 +130,7 @@ const applyMode = () => {
 
 
 const enableLightMode = () => {
-  lightIcon.style.display = 'none'; 
-  darkIcon.style.display = 'block'; 
+  toggle.classList.remove(`dark`);
   headerMode.classList.add('header_back');
   footerMode.classList.add('footer_back');
   cardBox.classList.add('card_box_back');
@@ -140,23 +138,16 @@ const enableLightMode = () => {
 
 
 const enableDarkMode = () => {
-  darkIcon.style.display = 'none'; 
-  lightIcon.style.display = 'block'; 
+  toggle.classList.add(`dark`);
   headerMode.classList.remove('header_back');
   footerMode.classList.remove('footer_back');
   cardBox.classList.remove('card_box_back');
 };
 
-
-lightIcon.addEventListener('click', () => {
-  toggleModeInLocalStorage();
-  applyMode();
-});
-
-darkIcon.addEventListener('click', () => {
-  toggleModeInLocalStorage();
-  applyMode();
-});
+toggle.addEventListener(`click`,()=>{
+  toggleModeInLocalStorage()
+  applyMode()
+})
 
 
 applyMode();

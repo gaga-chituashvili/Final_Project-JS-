@@ -76,11 +76,11 @@ xmark.addEventListener('click', toggleMenu);
 
 // Light/Dark mode toggle
 
+const toggle=document.querySelector(`.toggle`);
 const headerMode = document.querySelector('.header');
 const footerMode = document.querySelector('.footer');
 const contactBox = document.querySelector('.contact_box');
-const light = document.querySelector('.light');
-const dark = document.querySelector('.dark');
+
 
 
 const isLightMode = () => localStorage.getItem('lightmode') === 'true';
@@ -100,8 +100,7 @@ const applyMode = () => {
 };
 
 const enableLightMode = () => {
-  light.style.display = 'none';
-  dark.style.display = 'block';
+  toggle.classList.remove(`dark`);
   headerMode.classList.add('header_back');
   footerMode.classList.add('footer_back');
   contactBox.classList.add('contact_box_back');
@@ -109,23 +108,17 @@ const enableLightMode = () => {
 
 
 const enableDarkMode = () => {
-  dark.style.display = 'none';
-  light.style.display = 'block';
+  toggle.classList.add(`dark`);
   headerMode.classList.remove('header_back');
   footerMode.classList.remove('footer_back');
   contactBox.classList.remove('contact_box_back');
 };
 
+toggle.addEventListener(`click`,()=>{
+  toggleModeInStorage()
+  applyMode()
+})
 
-light.addEventListener('click', () => {
-  toggleModeInStorage();
-  applyMode();
-});
-
-dark.addEventListener('click', () => {
-  toggleModeInStorage();
-  applyMode();
-});
 
 
 applyMode();
