@@ -79,7 +79,7 @@
  width: 22px;
  height: 22px;
  position: absolute;
- background-color: white;
+ background-color: #9c9da1;
  border-radius: 50%;
  top: 4px;
  left: 4px;
@@ -87,8 +87,9 @@
 }
 
 
-.dark::before{
+.dark::before {
   transform: translateX(30px);
+  background-color:#212121;
 }
 
 /* Style for the navigation bar */
